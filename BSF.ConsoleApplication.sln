@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSF.ConsoleApplication", "BSF.ConsoleApplication\BSF.ConsoleApplication.csproj", "{0A9826A4-E076-4FA3-9A2F-F48CC3ADEFFB}"
 EndProject
@@ -16,11 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSF.LoggingServices", "BSF.LoggingServices\BSF.LoggingServices.csproj", "{5A473D08-EB9F-43E8-A0A9-F113715483B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSF.LoggingServicesTest", "BSF.LoggingServicesTest\BSF.LoggingServicesTest.csproj", "{CA02506C-3DFB-4BA7-B6FE-9FBCDDD37EF8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC9CD3A0-4FD9-402F-9F44-E6F47899CB28}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\LoggerApplication.v12\LoggerApplication.v12\code_review.txt = ..\..\..\LoggerApplication.v12\LoggerApplication.v12\code_review.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
