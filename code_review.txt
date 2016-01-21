@@ -1,0 +1,44 @@
+#The JobLogger class is taking more than one responsibility. It´s acting as a logging facade but also doing three different kinds of logging at the same time. 
+It would be better to split the actual logging into different logger implementations (database, file, console, etc) and leave JobLogger as an interface to the logging subsystem of the application.
+
+#Not all data members follow the same naming convention (e.g.: LogToDatabase)
+
+#JobLogger is an static class but is not declared as such and is using an instance constructor. It is advised to make it to an static class with an static constructor or make it a non static class but implement it as a Singleton.
+
+#The LogMessage method uses too many boolean parameters. This makes the code that calls the method difficult to read. What´s the difference between JobLogger.LogMessage("message", true, false, false) and JobLogger.LogMessage("message", false, false, true)? This forces the programmer to look at LogMessage`s signature. The boolean parameters also open the door to combinations that are not valid and that must be checked in JobLogger implementation (this makes the code more error prone). It would be better to use and enum or implement the facade using methods that expose the code intention explicitly (LogError, LogWarning, etc).
+
+#"using System.Configuration" is missing.
+
+#Namespace paths like System.Data.SqlClient (which are in the code should be put as an using statement (if possible) to simplify code reading.
+
+#LogMessage has 2 parameters named "message". It won`t compile.
+
+#LogMessage executes message.Trim() without cheking for a null reference before. This will cause a NullReferenceException when message is null.
+
+#The configuration settings validation must be done in the constructor, where the class is set up, and not in every LogMessage call.
+
+#The database logging code does neither close the connection nor dispose the database objects.
+
+#To work properly, the SqlCommand instance must be associated to a database connection.
+
+#The if chain´s where the variable "t" gets assigned should be replaced with "if else", as "t" values are exclusive.
+
+#The variable t could probably benefit with a more descriptive name.
+
+#Variable t can be used without ever being assigned. The code will not compile.
+
+#The hardcoded SQL sentence should be moved to a data access layer.
+
+#The file logging code is checking whether the file does not exits to read it. The boolean condition is inverted.
+
+#The file logging code appending text to the file by reading and writing the whole file content into memory in every logging operation. 
+
+#The code that determines the current log file name must be put at least in a variable, because it is repeated in 3 places.
+
+#Variable "l" could benefit of a more descriptive name.
+
+#Variable l can be used without ever being assigned. The code will not compile.
+
+#The file logging code logs the same text for all three possible logging types.
+
+#The console logging code can fail to adjust the console`s background color because some invalid boolean combinations can happen (e.g.: when error is true and _logError is false )
